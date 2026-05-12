@@ -1,94 +1,116 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f172a;
   font-family: Arial, sans-serif;
 }
 
 .app {
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
-    url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1974&auto=format&fit=crop");
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1556740749-887f6717d7e4");
   background-size: cover;
   background-position: center;
   color: white;
+  padding: 40px 20px;
 }
 
-.overlay {
-  min-height: 100vh;
-  padding: 45px 25px;
+.title {
   text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #a3ff12;
 }
 
-h1 {
-  font-size: 58px;
-  margin: 20px 0 35px;
-}
-
-.tabs {
+.nav-buttons {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 15px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
-  margin-bottom: 35px;
 }
 
-button {
-  background: #7CFC00;
-  color: black;
+.nav-buttons button {
+  background: #a3ff12;
   border: none;
-  border-radius: 18px;
-  padding: 18px 55px;
-  font-size: 22px;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.card input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+}
+
+.card button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #a3ff12;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.card {
-  max-width: 900px;
-  margin: 25px auto;
-  padding: 35px;
-  border-radius: 28px;
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(12px);
+.balance {
+  text-align: center;
+  margin-top: 30px;
 }
 
-input {
-  width: 38%;
-  min-width: 260px;
-  padding: 18px;
-  margin: 12px;
-  border-radius: 15px;
-  border: none;
-  font-size: 19px;
+.balance h2 {
+  font-size: 32px;
 }
 
-.dashboard {
-  margin: 35px auto;
-  max-width: 900px;
+.balance p {
+  font-size: 60px;
+  color: #a3ff12;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.dashboard h1 {
-  color: #7CFC00;
+.transactions {
+  margin-top: 40px;
 }
 
-.transaction {
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(12px);
-  margin: 20px auto;
-  padding: 25px;
-  max-width: 600px;
-  border-radius: 22px;
-  text-align: left;
-  font-size: 21px;
+.transactions h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 38px;
-  }
-
-  input,
-  button {
-    width: 90%;
-  }
+.transaction-item {
+  background: rgba(255,255,255,0.08);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }

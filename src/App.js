@@ -119,7 +119,7 @@ const API_URL = "https://moe-transfer-backend.onrender.com";
       <div className="overlay">
         <h1 className="title">💸 Moe Transfer</h1>
 
-        <div className="tabs">
+        <div className="nav-buttons">
           <button onClick={() => setMode("login")}>Login</button>
           <button onClick={() => setMode("register")}>Register</button>
           <button onClick={() => setMode("transfer")}>Transfer</button>
