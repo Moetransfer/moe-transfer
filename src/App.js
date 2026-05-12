@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./App.css";
 
 function App() {
   const [mode, setMode] = useState("login");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,11 +20,13 @@ function App() {
     return localStorage.getItem("moeToken");
   };
 
-  const loadDashboard = async () => {
+  const loadDashboard = useCallback(async () => {
     try {
       const token = getToken();
 
-      if (!token) return;
+      if (!token) {
+        return;
+      }
 
       const res = await axios.get(`${API_URL}/dashboard`, {
         headers: {
@@ -40,7 +41,7 @@ function App() {
       setMessage("Please login again");
       localStorage.removeItem("moeToken");
     }
-  };
+  }, []);
 
   const register = async () => {
     try {
@@ -68,7 +69,7 @@ function App() {
       setMessage(res.data.message);
       setMode("transfer");
 
-      loadDashboard();
+      await loadDashboard();
     } catch (err) {
       setMessage(err.response?.data?.message || "Login failed");
     }
@@ -95,7 +96,7 @@ function App() {
       setReceiverId("");
       setAmount("");
 
-      loadDashboard();
+      await loadDashboard();
     } catch (err) {
       setMessage(err.response?.data?.message || "Transfer failed");
     }
@@ -111,7 +112,7 @@ function App() {
 
   useEffect(() => {
     loadDashboard();
-  }, []);
+  }, [loadDashboard]);
 
   return (
     <div className="app">
