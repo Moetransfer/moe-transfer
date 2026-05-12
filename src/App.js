@@ -14,7 +14,7 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [transactions, setTransactions] = useState([]);
 
-  const API_URL = "http://localhost:4000";
+const API_URL = "https://moe-transfer-backend.onrender.com";
 
   const getToken = () => {
     return localStorage.getItem("moeToken");
